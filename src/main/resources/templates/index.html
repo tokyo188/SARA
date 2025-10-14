@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Resource Finder and Donator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" th:href="@{/}">
+                <i class="bi bi-heart-fill"></i> Resource Finder
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{/}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/resources}">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/volunteers}">Volunteers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/donors}">Donors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/about}">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section text-center">
+        <div class="container">
+            <h1>Resource Finder and Donator</h1>
+            <p class="lead">Connecting volunteers, donors, and communities during disasters and urgent needs</p>
+            <div class="mt-4">
+                <a th:href="@{/resources/new}" class="btn btn-light btn-lg me-2">
+                    <i class="bi bi-plus-circle"></i> Add Resource
+                </a>
+                <a th:href="@{/volunteers/new}" class="btn btn-outline-light btn-lg">
+                    <i class="bi bi-person-plus"></i> Register as Volunteer
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card feature-box">
+                    <div class="card-body">
+                        <i class="bi bi-box-seam feature-icon"></i>
+                        <h3>Resources</h3>
+                        <p>Share and find essential resources like food, water, medical supplies, and shelter during emergencies.</p>
+                        <a th:href="@{/resources}" class="btn btn-primary">View Resources</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-box">
+                    <div class="card-body">
+                        <i class="bi bi-people feature-icon"></i>
+                        <h3>Volunteers</h3>
+                        <p>Connect with skilled volunteers ready to help communities during disasters and emergencies.</p>
+                        <a th:href="@{/volunteers}" class="btn btn-primary">View Volunteers</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-box">
+                    <div class="card-body">
+                        <i class="bi bi-gift feature-icon"></i>
+                        <h3>Donors</h3>
+                        <p>Register as a donor and contribute resources, funds, or services to help those in need.</p>
+                        <a th:href="@{/donors}" class="btn btn-primary">View Donors</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="container mb-5">
+        <div class="card bg-light">
+            <div class="card-body text-center py-5">
+                <h2>Make a Difference Today</h2>
+                <p class="lead">Whether you need help or want to help others, our platform connects you with the right people and resources.</p>
+                <div class="mt-4">
+                    <a th:href="@{/donors/new}" class="btn btn-primary btn-lg me-2">
+                        <i class="bi bi-heart"></i> Become a Donor
+                    </a>
+                    <a th:href="@{/resources}" class="btn btn-outline-primary btn-lg">
+                        <i class="bi bi-search"></i> Find Resources
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2024 Resource Finder and Donator. Connecting communities in times of need.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

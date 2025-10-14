@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donors - Resource Finder and Donator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" th:href="@{/}">
+                <i class="bi bi-heart-fill"></i> Resource Finder
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/resources}">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/volunteers}">Volunteers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{/donors}">Donors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/about}">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="page-title mb-0">Registered Donors</h1>
+            <a th:href="@{/donors/new}" class="btn btn-primary">
+                <i class="bi bi-heart"></i> Register as Donor
+            </a>
+        </div>
+
+        <div class="table-container">
+            <div th:if="${donors.empty}" class="alert alert-info">
+                <i class="bi bi-info-circle"></i> No donors registered yet. Be the first to register!
+            </div>
+            
+            <div th:unless="${donors.empty}" class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Organization</th>
+                            <th>Donation Type</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="donor : ${donors}">
+                            <td th:text="${donor.name}">Jane Smith</td>
+                            <td th:text="${donor.email}">jane@example.com</td>
+                            <td th:text="${donor.phone}">555-5678</td>
+                            <td th:text="${donor.organization != null ? donor.organization : '-'}">Acme Corp</td>
+                            <td>
+                                <span class="badge bg-success" th:text="${donor.donationType}">Monetary</span>
+                            </td>
+                            <td th:text="${donor.description != null ? donor.description : '-'}">Monthly donations</td>
+                            <td>
+                                <a th:href="@{/donors/edit/{id}(id=${donor.id})}" class="btn btn-sm btn-warning">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a th:href="@{/donors/delete/{id}(id=${donor.id})}" 
+                                   class="btn btn-sm btn-danger"
+                                   onclick="return confirm('Are you sure you want to delete this donor?')">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2024 Resource Finder and Donator. Connecting communities in times of need.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
