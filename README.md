@@ -47,22 +47,22 @@ mvn clean package
 mvn spring-boot:run
 ```
 
-The application will start on `http://localhost:8080`
+The application will start on `http://localhost:9090`
 
 ### 4. Access the application
 
 Open your web browser and navigate to:
-- **Home Page**: http://localhost:8080
-- **Resources**: http://localhost:8080/resources
-- **Volunteers**: http://localhost:8080/volunteers
-- **Donors**: http://localhost:8080/donors
-- **H2 Console**: http://localhost:8080/h2-console
+- **Home Page**: http://localhost:9090
+- **Resources**: http://localhost:9090/resources
+- **Volunteers**: http://localhost:9090/volunteers
+- **Donors**: http://localhost:9090/donors
+- **H2 Console**: http://localhost:9090/h2-console
 
 ### H2 Database Console
 
 To access the H2 database console for debugging:
 
-1. Navigate to http://localhost:8080/h2-console
+1. Navigate to http://localhost:9090/h2-console
 2. Use the following credentials:
    - **JDBC URL**: `jdbc:h2:mem:saradb`
    - **Username**: `sa`
@@ -179,7 +179,7 @@ The application uses an H2 in-memory database by default. Configuration can be m
 
 ```properties
 # Server Configuration
-server.port=8080
+server.port=9090
 
 # H2 Database Configuration
 spring.datasource.url=jdbc:h2:mem:saradb
